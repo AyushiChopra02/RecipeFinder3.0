@@ -218,7 +218,59 @@ html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
+.microphone-icon {
+  color: #FF7E43; /* Orange color */
+  margin-left: 8px; /* Adjust as needed */
+  cursor: pointer;
+}
 
+/* Adjustments to the Search Field and Submit Button */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 420px; /* Adjust as needed */
+  margin: 0 auto;
+  border: 2px solid #E9E9E9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-field {
+  height: 56px;
+      background-color: var(--primary-container);
+      padding-inline: 40px 16px 16px 48px; /* Adjust padding as needed */
+      outline: none;
+}
+.search-wrapper .leading-icon,
+    .microphone-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px; /* Equal font size for both icons */
+      color: #ccc; /* Default color for icons */
+      cursor: pointer;
+    }
+    .search-wrapper .leading-icon {
+      left: 12px; /* Adjust the left position for the search icon */
+    }
+
+    .microphone-icon {
+      right: 12px; /* Adjust the right position for the microphone icon */
+    }
+.search-submit {
+  background-color: #FF7E43; /* Orange color */
+  border: none;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.search-submit:hover {
+  background-color: #E66E3E; /* Darker orange on hover */
+}
 body {
   background-color: var(--background);
   color: var(--on-background);

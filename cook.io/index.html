@@ -10,17 +10,12 @@
     - primary meta tags
   -->
   <title>Recipe Finder - Cooking made easy.</title>
-  <meta name="title" content="RecipeFinder - Cooking made easy.">
+  <meta name="title" content="Recipefinder - Cooking made easy.">
   <meta name="description" content="This is a recipe application ">
 
-  <!--  
-    - favicon
-  -->
-  <!-- <link rel="shortcut icon" href="./recipefinder.svg" type="image/svg+xml"> -->
-
-  <!-- 
-    - theme js
-  -->
+ 
+    <!-- - theme js -->
+  
   <script src="./assets/js/theme.js"></script>
 
   <!-- 
@@ -30,6 +25,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap"
     rel="stylesheet">
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
   <!-- 
     - material icon
@@ -49,6 +47,44 @@
   <script src="./assets/js/home.js" type="module"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const searchBar = document.getElementById('search');
+        const microphoneIcon = document.getElementById('microphoneIcon');
+        const themeToggleBtn = document.querySelector('.theme-switch');
+    
+        // Function to handle speech recognition
+        function recognizeSpeech() {
+            const recognition = new window.webkitSpeechRecognition() || new window.SpeechRecognition();
+            recognition.lang = 'en-US';
+    
+            recognition.onresult = function(event) {
+                const result = event.results[0][0].transcript;
+                searchBar.value = result; // Update the search bar value
+            };
+    
+            recognition.start();
+        }
+    
+        microphoneIcon.addEventListener('click', function() {
+            recognizeSpeech();
+        });
+    
+        // Toggle between dark and light themes
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+        });
+    
+        // Check if name is stored in localStorage
+        let userName = localStorage.getItem("name");
+        if (userName) {
+            document.getElementById("greeting").textContent = `Hi ${userName}! Welcome to Recipe Finder!`;
+            // Clear the stored name after
+            localStorage.removeItem("name");
+        }
+    });
+</script>
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
       const searchBtn = document.querySelector('.search-submit');
       searchBtn.addEventListener('click', function() {
         const searchField = document.querySelector('.search-field');
@@ -60,8 +96,67 @@
         }
       });
     });
-  </script>
-  
+  </script> -->
+  <style>
+    /* Styles for Search and Microphone Icons */
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 420px; /* Adjust as needed */
+      margin: 0 auto;
+      border: 2px solid #E9E9E9;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .search-field {
+      height: 56px;
+      background-color: var(--primary-container);
+      padding: 16px 16px 16px 48px; /* Adjust padding as needed */
+      border: none;
+      width: 100%;
+      outline: none;
+    }
+
+    .search-wrapper .leading-icon,
+    .microphone-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ccc; /* Default color for icons */
+      cursor: pointer;
+    }
+
+    .search-wrapper .leading-icon {
+      left: 12px; /* Adjust the left position for the search icon */
+      font-size: 18px; /* Adjusted font size for the search icon */
+    }
+
+    .microphone-icon {
+      right: 40px; /* Adjusted the right position for the microphone icon */
+      font-size: 24px; /* Increased font size for the microphone icon */
+      color: #FF7E43; /* Orange color for microphone */
+    }
+
+    .search-submit {
+      background-color: #ff4366; /* Orange color */
+      border: none;
+      width: 100px ;
+      height: 30px;
+      padding: 5px 10px; /* Adjusted padding */
+      margin :10px 12px ;
+      margin-right: 6rem ;
+      color: #fff;
+      font-size: 14px; /* Adjusted font size */
+      cursor: pointer;
+    }
+
+    .search-submit:hover {
+      background-color: #e62f4f; /* Darker orange on hover */
+    }
+  </style>
 </head>
 
 <body>
@@ -168,17 +263,15 @@
           <h1 class="display-large">Your desired dish?</h1>
 
           <div class="search-wrapper" data-search-form>
-
             <span class="material-symbols-outlined leading-icon" aria-hidden="true">local_dining</span>
-
-            <input type="search" name="search" aria-label="Search recipes" placeholder="Search recipes..."
-              class="search-field body-medium" data-search-field>
-
+            <input type="search" name="search" id="search" aria-label="Search recipes" placeholder="Search recipes..."
+                   class="search-field body-medium" data-search-field>
+            <i id="microphoneIcon" class="microphone-icon fas fa-microphone" onclick="recognizeSpeech()"></i>
             <button class="search-submit" aria-label="Submit" data-search-btn>
               <span class="material-symbols-outlined" aria-hidden="true">search</span>
             </button>
-
           </div>
+          
 
           <p class="label-medium">
             Search any recipe e.g: burger, pizza, sandwich, toast.
@@ -189,9 +282,62 @@
       </section>
 
 
+      <div id="google_translate_element"></div>
+      <div id="google_translate_element">
+        <!-- <img src="A:\Chitkara\Recipe_Finder3.0\cook.io\assets\images\go8616t41d-google-translate-logo-translate-free-logo-icons.png" alt="Google Translate Icon" /> -->
+      <!-- JavaScript -->
+     
+      
+      <!-- Google Translate Script -->
+      <script type="text/javascript">
+          function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                  pageLanguage: 'en',
+                  includedLanguages: 'en,es,fr',
+                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+              }, 'google_translate_element');
+          }
+      </script>
+      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>
 
-
-
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const searchBar = document.getElementById('search');
+          const microphoneIcon = document.getElementById('microphoneIcon');
+          const themeToggleBtn = document.querySelector('.theme-switch');
+      
+          // Function to handle speech recognition
+          function recognizeSpeech() {
+              const recognition = new window.webkitSpeechRecognition() || new window.SpeechRecognition();
+              recognition.lang = 'en-US';
+      
+              recognition.onresult = function(event) {
+                  const result = event.results[0][0].transcript;
+                  searchBar.value = result;
+              };
+      
+              recognition.start();
+          }
+      
+          microphoneIcon.addEventListener('click', function() {
+              recognizeSpeech();
+          });
+      
+          // Toggle between dark and light themes
+          themeToggleBtn.addEventListener('click', function() {
+              document.body.classList.toggle('dark-theme');
+          });
+      
+          // Check if name is stored in localStorage
+          let userName = localStorage.getItem("name");
+          if (userName) {
+              document.getElementById("greeting").textContent = `Hi ${userName}! Welcome to Recipe Finder!`;
+              // Clear the stored name after
+              localStorage.removeItem("name");
+          }
+        });
+      </script>
+      
       <!-- 
         - #TAB
       -->
@@ -543,7 +689,7 @@
     
 
     <a href="/" class="logo">
-      <img src="./assets/images/logo-light.svg" width="156" height="32" alt="Cook.io" class="logo-light">
+      <img src="./assets/images/logo-l  ight.svg" width="156" height="32" alt="Cook.io" class="logo-light">
 
       <img src="./assets/images/logo-dark.svg" width="156" height="32" alt="Cook.io" class="logo-dark">
     </a>
