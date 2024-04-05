@@ -167,16 +167,13 @@
 
   <header class="header" data-header>
 
-    <a href="/" class="logo">
-      <img src="./assets/images/logo-light.svg" width="156" height="32" alt="Cook.io" class="logo-light">
-      <img src="./assets/images/logo-dark.svg" width="156" height="32" alt="Cook.io" class="logo-dark">
-    </a>
+    
 
     <nav class="navbar">
       <ul class="navbar-list">
 
         <li>
-          <a href="/" class="navbar-link title-small has-state active">Home</a>
+          <a href="./index.html" class="navbar-link title-small has-state active">Home</a>
         </li>
 
         <li>
@@ -198,7 +195,20 @@
 
       <span class="span">Saved Recipes</span>
     </a>
-
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchBtn = document.querySelector('.search-submit');
+        searchBtn.addEventListener('click', function() {
+          const searchField = document.querySelector('.search-field');
+          const searchTerm = searchField.value.trim();
+          if (searchTerm !== '') {
+            window.location.href = `./recipes.html?search=${searchTerm}`; // Redirect with search term
+          } else {
+            alert('Please enter a search term.');
+          }
+        });
+      });
+    </script>
   </header>
 
 
