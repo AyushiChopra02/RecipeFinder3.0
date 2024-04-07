@@ -165,13 +165,9 @@
 
     <script>
         document.getElementById('reviewForm').addEventListener('submit', function(event) {
-            // Prevent default form submission
-            event.preventDefault();
-
             
+            event.preventDefault();
             const formData = new FormData(event.target);
-
-           
             fetch(event.target.action, {
                 method: 'POST',
                 body: formData
