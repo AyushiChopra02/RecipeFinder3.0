@@ -171,18 +171,52 @@
 
     <nav class="navbar">
       <ul class="navbar-list">
-
+    
         <li>
           <a href="./index.html" class="navbar-link title-small has-state active">Home</a>
         </li>
-
+    
         <li>
           <a href="./recipes.html" class="navbar-link title-small has-state">Recipes</a>
         </li>
-
+        
+        <li>
+          <a href="./review.html" class="navbar-link title-small has-state">Reviews</a>
+        </li>
+        <li>
+          <a href="./auth.html" class="navbar-link title-small has-state">Form</a>
+        </li>
+    
+        <!-- Google Translate Icon -->
+        <li>
+          <a href="#" class="navbar-link title-small has-state" onclick="showTranslate()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/2048px-Google_Translate_logo.svg.png"
+              alt="Google Translate Icon" style="height: 24px; width: 24px;">
+          </a>
+        </li>
       </ul>
     </nav>
-
+    <div id="google_translate_element" style="display: none;"></div>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,fr',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    
+      function showTranslate() {
+        var translateElement = document.getElementById('google_translate_element');
+        if (translateElement.style.display === 'none') {
+          translateElement.style.display = 'block';
+          googleTranslateElementInit();
+        } else {
+          translateElement.style.display = 'none';
+        }
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
     <button class="icon-btn theme-switch has-state" aria-pressed="false" aria-label="Toggle light and dark theme"
       data-theme-btn>
       <span class="material-symbols-outlined light-icon" aria-hidden="true">light_mode</span>
@@ -290,16 +324,45 @@
         </div>
 
       </section>
+      <!-- <nav class="navbar">
+        <a href="#" class="navbar-link title-small has-state" onclick="showTranslate()">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/2048px-Google_Translate_logo.svg.png"
+            alt="Google Translate Icon" style="height: 24px; width: 24px;">
+        </a>
+      </nav>
+    
+      <!-- Google Translate Script -->
+      <!-- <div id="google_translate_element" style="display: none;"></div>
+      <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,es,fr',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+        }
+     
+        function showTranslate() {
+          var translateElement = document.getElementById('google_translate_element');
+          if (translateElement.style.display === 'none') {
+            translateElement.style.display = 'block';
+            googleTranslateElementInit();
+          } else {
+            translateElement.style.display = 'none';
+          }
+        }
+      </script>
+      <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script> -->
 
 
-      <div id="google_translate_element"></div>
-      <div id="google_translate_element">
+      <!-- <div id="google_translate_element"></div>
+      <div id="google_translate_element"> -->
         <!-- <img src="A:\Chitkara\Recipe_Finder3.0\cook.io\assets\images\go8616t41d-google-translate-logo-translate-free-logo-icons.png" alt="Google Translate Icon" /> -->
       <!-- JavaScript -->
      
       
       <!-- Google Translate Script -->
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
           function googleTranslateElementInit() {
               new google.translate.TranslateElement({
                   pageLanguage: 'en',
@@ -308,7 +371,7 @@
               }, 'google_translate_element');
           }
       </script>
-      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>
+      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script> -->
 
       <script>
         document.addEventListener('DOMContentLoaded', function() {

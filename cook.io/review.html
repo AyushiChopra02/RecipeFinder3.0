@@ -12,7 +12,7 @@
         /* Rest of your styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: black;
             margin: 0;
             padding: 20px;
         }
@@ -98,9 +98,9 @@
 </head>
 
 <body>
-
+    <header class="header" data-header>
     <!-- Navigation -->
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <div class="navbar-left">
             <span class="greeting" id="greeting"></span>
         </div>
@@ -110,7 +110,28 @@
             <a href="review.html" class="review-btn"><i class="fas fa-star"></i></a>
             <button id="themeToggleBtn" class="button"><i class="fas fa-lightbulb"></i></button>
         </div>
-    </nav>
+    </nav> -->
+    <nav class="navbar">
+        <ul class="navbar-list">
+  
+          <li>
+            <a href="./index.html" class="navbar-link title-small has-state active">Home</a>
+          </li>
+  
+          <li>
+            <a href="./recipes.html" class="navbar-link title-small has-state">Recipes</a>
+          </li>
+          <li>
+            <a href="./review.html" class="navbar-link title-small has-state">Reviews</a>
+          </li>
+          <li>
+            <a href="./auth.html" class="navbar-link title-small has-state">Form</a>
+          </li>
+          
+  
+        </ul>
+      </nav>
+  
 
     <div class="review-container">
         <h1>Leave a Review</h1>
