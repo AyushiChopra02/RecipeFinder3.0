@@ -158,7 +158,7 @@
             signInWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
                     // Signed in
-                    const user = userCredential.user;
+                    const user = userCredential.user ;
                     console.log(user);
                     alert(user.email + " Login successful!");
                     window.location.href = "./cook.io/index.html";  
