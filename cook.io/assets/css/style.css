@@ -1603,6 +1603,21 @@ main { flex-grow: 1; }
 }
 
 
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.social-icons {
+  display: flex;
+}
+
+.button {
+  /* Add your button styles here */
+  margin: 0 10px; /* Adjust spacing between buttons */
+  font-size: 24px;
+}
 
 
 

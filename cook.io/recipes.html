@@ -77,9 +77,9 @@
         <li>
           <a href="./review.html" class="navbar-link title-small has-state">Reviews</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="./auth.html" class="navbar-link title-small has-state">Form</a>
-        </li>
+        </li> -->
       </ul>
     </nav>
 
@@ -1007,6 +1007,48 @@
     </a>
 
   </footer> -->
+  <footer class="footer">
+    <div class="social-icons">
+      <button class="button button-facebook" onclick="shareOnFacebook('Pasta Carbonara')">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+      <button class="button button-twitter" onclick="shareOnTwitter('Pasta Carbonara')">
+        <i class="fab fa-twitter"></i>
+      </button>
+      <button class="button button-email" onclick="shareViaEmail('Pasta Carbonara')">
+        <i class="fas fa-envelope"></i>
+      </button>
+    </div>
+  </footer>
+  
+  <script>
+    // Twitter share function
+    function shareOnTwitter(recipeName) {
+      // Construct the tweet URL with the recipe name
+      const tweetUrl = `https://twitter.com/intent/tweet?text=Check%20out%20this%20delicious%20recipe:%20${recipeName}`;
+      // Open the tweet URL in a new window
+      window.open(tweetUrl, '_blank');
+    }
+  
+    // Email share function
+    function shareViaEmail(recipeName) {
+      // Construct the email body with the recipe name
+      const emailBody = `Check out this delicious recipe: ${recipeName}`;
+      // Construct the mailto link with the email body
+      const mailtoLink = `mailto:?subject=Check%20out%20this%20delicious%20recipe&body=${emailBody}`;
+      // Redirect to the mailto link
+      window.location.href = mailtoLink;
+    }
+  
+    // Facebook share function
+    function shareOnFacebook(recipeName) {
+      // Construct the Facebook share URL with the recipe name
+      const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=Check%20out%20this%20delicious%20recipe:%20${recipeName}`;
+      // Open the Facebook share URL in a new window
+      window.open(fbShareUrl, '_blank');
+    }
+  </script>
+  
 
 </body>
 

@@ -123,6 +123,9 @@
                     console.log(user);
                     alert(user.email + " Login successful!");
                     document.getElementById("logout").style.display = "block"; // Show logout button
+
+                    // Redirect to home page
+                    window.location.href = "index.html"; // Change "index.html" to the URL of your home page
                 })
                 .catch((error) => {
                     const errorMessage = error.message;
